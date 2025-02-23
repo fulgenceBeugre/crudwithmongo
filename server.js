@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const app = express();
-port = process.env.PORT || 3000;
+port = 3000;
 dotenv.config();
 
 // connect to MongoDB
@@ -170,13 +170,15 @@ app.listen(port, () => {
   console.log(`Server is running on localhost:${port}`);
 });
 
-// createAndSavePerson();
-// createManyPeople();
-// findPeopleByName();
-// findOneByFood();
-// findPersonById();
-// findEditThenSave();
-// findAndUpdate();
-// removeById();
-// removeManyPeolpe();
-// queryChain();
+async () => {
+  await createAndSavePerson();
+  await createManyPeople(arrayOfPeople);
+  await findPeopleByName("MelDev");
+  await findOneByFood("Burritos");
+  await findPersonById("ID_D_UNE_PERSONNE");
+  await findEditThenSave("ID_D_UNE_PERSONNE");
+  await findAndUpdate("MelDev");
+  await removeById("ID_D_UNE_PERSONNE");
+  await removeManyPeople();
+  await queryChain();
+};
